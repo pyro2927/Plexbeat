@@ -1,0 +1,9 @@
+################### Plexbeat Configuration Example #########################
+
+############################# Plexbeat ######################################
+
+plexbeat:
+  # Defines how often an event is sent to the output
+  period: 1s
+  auth: QWERTYASDF1234
+  host: 127.0.0.1

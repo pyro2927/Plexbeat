@@ -1,0 +1,14 @@
+- key: plexbeat
+  title: plexbeat
+  description:
+  fields:
+    - name: counter
+      type: long
+      required: true
+      description: >
+        Counter, fuck it
+    - name: sessions
+      type: long
+      required: false
+      description: >
+        The number of sessions your Plex Server is currently streaming

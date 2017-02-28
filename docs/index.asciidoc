@@ -1,0 +1,5 @@
+= Plexbeat Docs
+
+Welcome to the Plexbeat documentation.
+
+
