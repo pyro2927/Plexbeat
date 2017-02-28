@@ -3,6 +3,7 @@ package beater
 import (
 	"fmt"
 	"time"
+  "strconv"
   "strings"
 
 	"github.com/elastic/beats/libbeat/beat"
@@ -52,11 +53,12 @@ func (bt *Plexbeat) Run(b *beat.Beat) error {
     current, err := Plex.GetSessions()
 
     if err == nil {
+      session_count, _ := strconv.Atoi(current.Size)
       event := common.MapStr{
         "@timestamp":             common.Time(time.Now()),
         "type":                   b.Name,
         "counter":                counter,
-        "plex.sessions.count":    current.Size,
+        "plex.sessions.count":    session_count,
         "plex.host":              bt.config.Host,
       }
       bt.client.PublishEvent(event)
