@@ -128,16 +128,6 @@ None
 
 
 [float]
-=== counter
-
-type: long
-
-required: True
-
-Counter, fuck it
-
-
-[float]
 === plex.sessions.count
 
 type: long
@@ -145,6 +135,26 @@ type: long
 required: False
 
 The number of sessions your Plex server is currently streaming
+
+
+[float]
+=== plex.sessions.key
+
+type: text
+
+required: False
+
+The key of the video file of that specific Plex session
+
+
+[float]
+=== plex.sessions.user
+
+type: text
+
+required: False
+
+The username of the Plex user that is streaming a video file
 
 
 [float]

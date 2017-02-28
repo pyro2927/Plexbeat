@@ -38,9 +38,6 @@
             }
           }
         },
-        "counter": {
-          "type": "long"
-        },
         "meta": {
           "properties": {
             "cloud": {
@@ -83,6 +80,14 @@
               "properties": {
                 "count": {
                   "type": "long"
+                },
+                "key": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "user": {
+                  "norms": false,
+                  "type": "text"
                 }
               }
             }

@@ -41,7 +41,6 @@ func (bt *Plexbeat) Run(b *beat.Beat) error {
 
 	bt.client = b.Publisher.Connect()
 	ticker := time.NewTicker(bt.config.Period)
-	counter := 1
   s := []string{"http://", bt.config.Host, ":", bt.config.Port};
   Plex, _ := plex.New(strings.Join(s, ""), bt.config.AuthToken)
 	for {
@@ -54,16 +53,18 @@ func (bt *Plexbeat) Run(b *beat.Beat) error {
 
     if err == nil {
       session_count, _ := strconv.Atoi(current.Size)
-      event := common.MapStr{
-        "@timestamp":             common.Time(time.Now()),
-        "type":                   b.Name,
-        "counter":                counter,
-        "plex.sessions.count":    session_count,
-        "plex.host":              bt.config.Host,
+      for _, video := range current.Video {
+        event := common.MapStr{
+          "@timestamp":             common.Time(time.Now()),
+          "type":                   b.Name,
+          "plex.sessions.count":    session_count,
+          "plex.sessions.key":      video.Key,
+          "plex.sessions.user":     video.User.Title,
+          "plex.host":              bt.config.Host,
+        }
+        bt.client.PublishEvent(event)
+        logp.Info("Event sent")
       }
-      bt.client.PublishEvent(event)
-      logp.Info("Event sent")
-      counter++
     } else {
       logp.Warn("Unable to connect to Plex Server")
     }

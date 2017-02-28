@@ -2,16 +2,21 @@
   title: plexbeat
   description:
   fields:
-    - name: counter
-      type: long
-      required: true
-      description: >
-        Counter, fuck it
     - name: plex.sessions.count
       type: long
       required: false
       description: >
         The number of sessions your Plex server is currently streaming
+    - name: plex.sessions.key
+      type: text
+      required: false
+      description: >
+        The key of the video file of that specific Plex session
+    - name: plex.sessions.user
+      type: text
+      required: false
+      description: >
+        The username of the Plex user that is streaming a video file
     - name: plex.host
       type: text
       required: true
