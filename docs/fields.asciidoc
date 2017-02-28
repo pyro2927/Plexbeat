@@ -138,12 +138,22 @@ Counter, fuck it
 
 
 [float]
-=== sessions
+=== plex.sessions.count
 
 type: long
 
 required: False
 
-The number of sessions your Plex Server is currently streaming
+The number of sessions your Plex server is currently streaming
+
+
+[float]
+=== plex.host
+
+type: text
+
+required: True
+
+The host of your Plex server from the config file
 
 

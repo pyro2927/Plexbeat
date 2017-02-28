@@ -85,8 +85,23 @@
             }
           }
         },
-        "sessions": {
-          "type": "long"
+        "plex": {
+          "properties": {
+            "host": {
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
+              "type": "string"
+            },
+            "sessions": {
+              "properties": {
+                "count": {
+                  "type": "long"
+                }
+              }
+            }
+          }
         },
         "tags": {
           "ignore_above": 1024,

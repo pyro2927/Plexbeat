@@ -73,8 +73,20 @@
             }
           }
         },
-        "sessions": {
-          "type": "long"
+        "plex": {
+          "properties": {
+            "host": {
+              "norms": false,
+              "type": "text"
+            },
+            "sessions": {
+              "properties": {
+                "count": {
+                  "type": "long"
+                }
+              }
+            }
+          }
         },
         "tags": {
           "ignore_above": 1024,

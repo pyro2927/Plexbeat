@@ -53,11 +53,11 @@ func (bt *Plexbeat) Run(b *beat.Beat) error {
 
     if err == nil {
       event := common.MapStr{
-        "@timestamp": common.Time(time.Now()),
-        "type":       b.Name,
-        "counter":    counter,
-        "sessions":   current.Size,
-        "host":       bt.config.Host,
+        "@timestamp":             common.Time(time.Now()),
+        "type":                   b.Name,
+        "counter":                counter,
+        "plex.sessions.count":    current.Size,
+        "plex.host":              bt.config.Host,
       }
       bt.client.PublishEvent(event)
       logp.Info("Event sent")
